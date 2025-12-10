@@ -15,120 +15,72 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #2c2c2c;
-            background: #fafafa;
+            background: #fff;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
-            z-index: 1000;
+        header {
+            padding: 3rem 2rem 2rem;
+            text-align: center;
             border-bottom: 1px solid #e5e5e5;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            padding: 1.5rem 0;
+            text-align: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #2c2c2c;
+            color: #666;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
-            text-transform: uppercase;
+            margin: 0 1.5rem;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #666;
+            color: #2c2c2c;
         }
 
-        section {
-            min-height: 100vh;
-            padding: 6rem 2rem 4rem;
-            max-width: 1200px;
+        .container {
+            max-width: 1400px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 3rem 2rem;
         }
 
-        #hero {
-            text-align: center;
-            padding-top: 0;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        h1 {
-            font-size: 4rem;
-            font-weight: 300;
-            letter-spacing: 2px;
+        .project-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            background: #000;
             margin-bottom: 1rem;
         }
 
-        .subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 3rem;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            background: #000;
-            border-radius: 2px;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .video-thumbnail {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s;
-        }
-
-        .video-link {
-            position: relative;
-            display: block;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            background: #000;
-            border-radius: 2px;
-        }
-
-        .video-link img {
+        .project-image img {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -136,33 +88,58 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
             transition: opacity 0.3s;
         }
 
-        .video-link:hover img {
+        .project-card:hover .project-image img {
             opacity: 0.8;
         }
 
-        .video-title {
-            margin-top: 0.75rem;
-            font-size: 1rem;
+        .project-image iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .project-info h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+            color: #2c2c2c;
+        }
+
+        .project-info p {
+            font-size: 0.9rem;
             color: #666;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
             text-align: center;
         }
 
         .writing-sample {
-            background: white;
+            background: #fafafa;
             padding: 3rem;
             margin-bottom: 2rem;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .writing-sample h3 {
             font-size: 1.5rem;
             font-weight: 400;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: #2c2c2c;
         }
 
@@ -173,24 +150,22 @@
             margin-bottom: 1rem;
         }
 
-        .contact-info {
+        .contact-section {
             text-align: center;
-            font-size: 1.1rem;
+            padding: 3rem 2rem;
+            background: #fafafa;
         }
 
-        .contact-info a {
+        .contact-section a {
             color: #2c2c2c;
             text-decoration: none;
             border-bottom: 1px solid #ccc;
             transition: border-color 0.3s;
+            font-size: 1.1rem;
         }
 
-        .contact-info a:hover {
+        .contact-section a:hover {
             border-bottom-color: #2c2c2c;
-        }
-
-        .contact-info p {
-            margin: 1rem 0;
         }
 
         footer {
@@ -202,23 +177,17 @@
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.1rem;
+                font-size: 2rem;
             }
 
-            nav ul {
-                gap: 1.5rem;
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
 
             nav a {
-                font-size: 0.8rem;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
+                margin: 0 1rem;
+                font-size: 0.85rem;
             }
 
             .writing-sample {
@@ -228,97 +197,88 @@
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#writing">Writing</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section id="hero">
+    <header>
         <h1>JOY MA</h1>
-    </section>
+        <nav>
+            <a href="#projects">Work</a>
+            <a href="#writing">Writing</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-    <section id="work">
-        <h2>Selected Work</h2>
-        
-        <div class="video-grid">
-            <div>
-                <div class="video-container">
-                    <!-- Replace VIDEO_ID with your actual YouTube video ID -->
-                    <iframe src="https://www.youtube.com/embed/KR97gSrQg94" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="container">
+        <section id="projects" class="section">
+            <div class="projects-grid">
+                
+                <!-- Project 1 - Fiona and Joy -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <iframe src="https://www.youtube.com/embed/KR97gSrQg94" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3>fiona and joy</h3>
+                        <p>Short film</p>
+                    </div>
                 </div>
-                <p class="video-title">fiona and joy</p>
-            </div>
 
-            <div>
-                <a href="https://vimeo.com/1030186474" target="_blank" class="video-link">
-                    <img src="returning_august_thumnail.png" alt="Project thumbnail">
+                <!-- Project 2 - Returning August -->
+                <a href="https://vimeo.com/1030186474" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="returning_august_thumnail.png" alt="Returning August">
+                    </div>
+                    <div class="project-info">
+                        <h3>Returning August</h3>
+                        <p>Film</p>
+                    </div>
                 </a>
-                <p class="video-title">Another Project</p>
+
+                <!-- Add more projects here following the same structure -->
+
             </div>
+        </section>
 
-            <div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <p class="video-title">Returning August</p>
+        <section id="writing" class="section">
+            <h2 class="section-title">Writing</h2>
+            
+            <div class="writing-sample">
+                <h3>In the Silence</h3>
+                <p>"You are white," she said.</p>
+                <p>"What?" I responded. "Did you say you think I'm white?"</p>
+                <p>"You're white." She said.</p>
+                <p>"Excuse me?" I wanted to tell her. Do I look white to you?</p>
+                <p>Does my straight, black hair; my skin, a shade of tan that someone with red undertones would not have; my lack of breasts that people still manage to point out; my above-average below-average height; the eyes people put their index fingers on the outside corners of and pull back to recreate; the naturally stick straight body; look white to you?</p>
+                <p>If you say genuinely yes, you might be the first, Please. How am I white. They cannot take credit for who I am.</p>
+                <p>Why have they told you that though I do not look like them, I do not live a different life? That though we have a different history, of martyrs and unheard voices who have been legally discriminated against, and beautiful communities, we live the same lives?</p>
+                <p>Every day, people tell me to hush, that I cannot speak because I do not know things and do not experience a life whose experience is worth uplifting. So my voice is silenced and I cannot talk about our voices who have been silenced.</p>
+                <p>You don't know the families they have violated. The homes they have invaded and raided. You don't know the 12-year-old girl who came to my house after school everyday to do her homework, because they'd taken everything, moved their furniture, taken even the wifi modem, and could come back any second. You don't know her father who cannot come home from thousands of miles away.</p>
+                <p>You don't know what they do to us in the silence. You don't know that they are not the only ones. You don't know. I didn't know.</p>
+                <p>You don't know that it is dangerous to be shy or sweet. Because maybe they will think we are all always shy and sweet and will not fight back. Because maybe something will happen to her.</p>
+                <p>By the way, there is a name for that, it's called Orientalism.</p>
+                <p>Because maybe when she is walking down the street with her friends with no identifier except her face, he will call to her that he has never had one of her kind.</p>
+                <p>Because maybe the old man by the pool will stare at her fine haired legs and square shaped torso, imagining how she would say yes to him while he leers down at her and calls her sweet and invites her to his room.</p>
+                <p>Because they will stop her on her run and follow her and tell her she is theirs and she has to hide in the bushes and wait until they walk past until she feels safe again.</p>
+                <p>Because they see her first as Asian, then as woman, then as human.</p>
+                <p>On the first day of middle school, a family came to me to tell me they'd lived in China before and took my nervous smiles to tell my parents: "oh, she doesn't speak English!" Not that we should need to speak English, not that anything is wrong with not speaking English, as my mother could not when she first came here. Not that the English she speaks is any less valid then the English white people speak, not that the extra vowels she sometimes inserts because that's how her parents speak is any less of an English than they speak. But that they see her face and decide she is other and that is why they will not speak to her.</p>
+                <p>My friends and I have been stopped at the movie theater, the store, the park, and asked, Where are you from? No, Where are you really from? As if I don't belong here. As if my parents didn't study for endless tests for their degrees and fought with no money to have one of the few spaces in this country and I could be born with a blue passport. As if the ones before them weren't imprisoned for years to be interrogated at Angel Island. Where are you really from? As if I should have any ownership of the place whose government killed my great grandfather and took my grandparents' livelihood from them and killed my mother's first child years before I was born. No, no, I'm asking where you're originally from. As if knowing that I know how to make the rice you buy in little takeout boxes means you now know who I am.</p>
+                <p>Please. How am I white.</p>
+                <p>To say I am white, is an insult to my culture, my work, and our humanity. To let that label claim what we have created and who we are—please. As we cannot say we are them, they cannot say they are us. So let us claim and take credit for who we are. We are Asian American.</p>
+                <p>So eat our orange chicken we invented for you.</p>
+                <p>So fetishize us until the violence reaches the bedroom.</p>
+                <p>So try to convince yourself you can find the difference between the features of Chinese and Korean and Japanese and Thai and Vietnamese, also known as: the different categories in your UberEats app, until you can pretend you don't forget to see the difference between each of us and what they tell you asians in America are supposed to be, that we are people.</p>
+                <p>Just remember My story is not every one of our stories. You have only heard this one.</p>
+                <p>But that's the thing. There are so, so many stories. So many. They live in the silence.</p>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <section id="writing">
-        <h2>Writing</h2>
-        
-        <div class="writing-sample">
-            <h3>In the Silence</h3>
-            <p>"You are white," she said.</p>
-            <p>"What?" I responded. "Did you say you think I'm white?"</p>
-            <p>"You're white." She said.</p>
-            <p>"Excuse me?" I wanted to tell her. Do I look white to you?</p>
-            <p>Does my straight, black hair; my skin, a shade of tan that someone with red undertones would not have; my lack of breasts that people still manage to point out; my above-average below-average height; the eyes people put their index fingers on the outside corners of and pull back to recreate; the naturally stick straight body; look white to you?</p>
-            <p>If you say genuinely yes, you might be the first, Please. How am I white. They cannot take credit for who I am.</p>
-            <p>Why have they told you that though I do not look like them, I do not live a different life? That though we have a different history, of martyrs and unheard voices who have been legally discriminated against, and beautiful communities, we live the same lives?</p>
-            <p>Every day, people tell me to hush, that I cannot speak because I do not know things and do not experience a life whose experience is worth uplifting. So my voice is silenced and I cannot talk about our voices who have been silenced.</p>
-            <p>You don't know the families they have violated. The homes they have invaded and raided. You don't know the 12-year-old girl who came to my house after school everyday to do her homework, because they'd taken everything, moved their furniture, taken even the wifi modem, and could come back any second. You don't know her father who cannot come home from thousands of miles away.</p>
-            <p>You don't know what they do to us in the silence. You don't know that they are not the only ones. You don't know. I didn't know.</p>
-            <p>You don't know that it is dangerous to be shy or sweet. Because maybe they will think we are all always shy and sweet and will not fight back. Because maybe something will happen to her.</p>
-            <p>By the way, there is a name for that, it's called Orientalism.</p>
-            <p>Because maybe when she is walking down the street with her friends with no identifier except her face, he will call to her that he has never had one of her kind.</p>
-            <p>Because maybe the old man by the pool will stare at her fine haired legs and square shaped torso, imagining how she would say yes to him while he leers down at her and calls her sweet and invites her to his room.</p>
-            <p>Because they will stop her on her run and follow her and tell her she is theirs and she has to hide in the bushes and wait until they walk past until she feels safe again.</p>
-            <p>Because they see her first as Asian, then as woman, then as human.</p>
-            <p>On the first day of middle school, a family came to me to tell me they'd lived in China before and took my nervous smiles to tell my parents: "oh, she doesn't speak English!" Not that we should need to speak English, not that anything is wrong with not speaking English, as my mother could not when she first came here. Not that the English she speaks is any less valid then the English white people speak, not that the extra vowels she sometimes inserts because that's how her parents speak is any less of an English than they speak. But that they see her face and decide she is other and that is why they will not speak to her.</p>
-            <p>My friends and I have been stopped at the movie theater, the store, the park, and asked, Where are you from? No, Where are you really from? As if I don't belong here. As if my parents didn't study for endless tests for their degrees and fought with no money to have one of the few spaces in this country and I could be born with a blue passport. As if the ones before them weren't imprisoned for years to be interrogated at Angel Island. Where are you really from? As if I should have any ownership of the place whose government killed my great grandfather and took my grandparents' livelihood from them and killed my mother's first child years before I was born. No, no, I'm asking where you're originally from. As if knowing that I know how to make the rice you buy in little takeout boxes means you now know who I am.</p>
-            <p>Please. How am I white.</p>
-            <p>To say I am white, is an insult to my culture, my work, and our humanity. To let that label claim what we have created and who we are—please. As we cannot say we are them, they cannot say they are us. So let us claim and take credit for who we are. We are Asian American.</p>
-            <p>So eat our orange chicken we invented for you.</p>
-            <p>So fetishize us until the violence reaches the bedroom.</p>
-            <p>So try to convince yourself you can find the difference between the features of Chinese and Korean and Japanese and Thai and Vietnamese, also known as: the different categories in your UberEats app, until you can pretend you don't forget to see the difference between each of us and what they tell you asians in America are supposed to be, that we are people.</p>
-            <p>Just remember My story is not every one of our stories. You have only heard this one.</p>
-            <p>But that's the thing. There are so, so many stories. So many. They live in the silence.</p>
-        </div>
-
-        <div class="writing-sample">
-            <h3>Another Sample</h3>
-            <p>
-                Add another piece here. The clean, minimalist design keeps the focus on your words.
-            </p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact-info">
-            <p><a href="mailto:joy.j.ma1@gmail.com">joy.j.ma1@gmail.com</a></p>
-            <p>Cambridge, MA</p>
-        </div>
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p><a href="mailto:joy.j.ma1@gmail.com">joy.j.ma1@gmail.com</a></p>
+        <p style="margin-top: 1rem; color: #666;">Cambridge, MA</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <p>&copy; 2024 Joy Ma. All rights reserved.</p>
     </footer>
 </body>
 </html>
