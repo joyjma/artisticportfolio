@@ -110,6 +110,40 @@
             height: 100%;
         }
 
+        .video-thumbnail {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .video-link {
+            position: relative;
+            display: block;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 2px;
+        }
+
+        .video-link img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: opacity 0.3s;
+        }
+
+        .video-link:hover img {
+            opacity: 0.8;
+        }
+
         .video-title {
             margin-top: 0.75rem;
             font-size: 1rem;
