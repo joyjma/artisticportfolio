@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Sightly - Joy Ma</title>
+    <link rel="stylesheet" href="gallery-styles.css">
+    <link rel="stylesheet" href="photo-credit.css">
+</head>
+<body>
+    <header>
+        <h1>Not Sightly</h1>
+        <p class="subtitle">Puppeteer | Dir. Joseph Lark-Riley | MIT Theater Arts</p>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+    </header>
+
+    <div class="gallery">
+        <div class="gallery-item" data-credit="Fang Liu">
+            <img src="images/Not Sightly/IMG_0227.jpg" alt="Not Sightly 1" onclick="openLightbox(0)">
+        </div>
+        <div class="gallery-item" data-credit="Fang Liu">
+            <img src="images/Not Sightly/IMG_0229.JPG" alt="Not Sightly 2" onclick="openLightbox(1)">
+        </div>
+        <div class="gallery-item" data-credit="Fang Liu">
+            <img src="images/Not Sightly/IMG_0274.JPG" alt="Not Sightly 3" onclick="openLightbox(2)">
+        </div>
+        <div class="gallery-item" data-credit="Fang Liu">
+            <img src="images/Not Sightly/IMG_0276.JPG" alt="Not Sightly 4" onclick="openLightbox(3)">
+        </div>
+        <div class="gallery-item" data-credit="Fang Liu">
+            <img src="images/Not Sightly/IMG_0280.JPG" alt="Not Sightly 5" onclick="openLightbox(4)">
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
+    </div>
+
+    <script>
+        const images = [
+            'images/Not Sightly/IMG_0227.jpg',
+            'images/Not Sightly/IMG_0229.JPG',
+            'images/Not Sightly/IMG_0274.JPG',
+            'images/Not Sightly/IMG_0276.JPG',
+            'images/Not Sightly/IMG_0280.JPG'
+        ];
+
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('lightbox').style.display === 'flex') {
+                if (event.key === 'ArrowLeft') changeImage(-1);
+                if (event.key === 'ArrowRight') changeImage(1);
+                if (event.key === 'Escape') closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
