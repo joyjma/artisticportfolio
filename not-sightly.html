@@ -14,7 +14,7 @@
         <a href="index.html" class="back-link">← Back to Portfolio</a>
     </header>
 
-    <div class="gallery">
+    <div class="gallery-grid">
         <div class="gallery-item" data-credit="Fang Liu">
             <img src="images/Not Sightly/IMG_0227.jpg" alt="Not Sightly 1" onclick="openLightbox(0)">
         </div>
@@ -33,10 +33,10 @@
     </div>
 
     <div id="lightbox" class="lightbox">
-        <span class="close" onclick="closeLightbox()">&times;</span>
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
         <img id="lightbox-img" src="" alt="">
-        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
-        <a class="next" onclick="changeImage(1)">&#10095;</a>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</button>
     </div>
 
     <script>
@@ -52,12 +52,16 @@
 
         function openLightbox(index) {
             currentIndex = index;
-            document.getElementById('lightbox').style.display = 'flex';
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('active');
+            lightbox.style.display = 'flex';
             document.getElementById('lightbox-img').src = images[currentIndex];
         }
 
         function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            lightbox.style.display = 'none';
         }
 
         function changeImage(direction) {
@@ -68,7 +72,8 @@
         }
 
         document.addEventListener('keydown', function(event) {
-            if (document.getElementById('lightbox').style.display === 'flex') {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.style.display === 'flex' || lightbox.classList.contains('active')) {
                 if (event.key === 'ArrowLeft') changeImage(-1);
                 if (event.key === 'ArrowRight') changeImage(1);
                 if (event.key === 'Escape') closeLightbox();
