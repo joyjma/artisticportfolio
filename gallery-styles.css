@@ -98,6 +98,32 @@ h1 {
     opacity: 0.9;
 }
 
+/* Article preview style */
+.gallery-item.article-preview {
+    padding: 2rem;
+    background: #fafafa;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.gallery-item.article-preview h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #2c2c2c;
+    font-weight: 400;
+}
+
+.gallery-item.article-preview p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.gallery-item.article-preview:hover {
+    background: #f0f0f0;
+}
+
 /* Lightbox styles */
 .lightbox {
     display: none;
