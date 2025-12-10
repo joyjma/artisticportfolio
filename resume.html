@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Joy Ma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #fafafa;
+            color: #2c2c2c;
+            line-height: 1.4;
+        }
+
+        header {
+            padding: 2rem;
+            text-align: center;
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #666;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: #2c2c2c;
+            border-color: #999;
+        }
+
+        .resume-container {
+            max-width: 8.5in;
+            margin: 2rem auto;
+            padding: 0.6in;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 10pt;
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .resume-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #2c2c2c;
+        }
+
+        .education-entry {
+            margin-bottom: 0.5rem;
+        }
+
+        .education-entry strong {
+            font-weight: 700;
+        }
+
+        .education-entry em {
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0.5rem;
+            font-size: 9pt;
+        }
+
+        table td {
+            padding: 0.2rem 0.3rem 0.2rem 0;
+            vertical-align: top;
+        }
+
+        table tr:first-child {
+            font-weight: 700;
+        }
+
+        .performance-section p {
+            margin-bottom: 0.4rem;
+            font-size: 9pt;
+        }
+
+        .performance-section strong {
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 1rem;
+                padding: 1rem;
+                font-size: 9pt;
+            }
+
+            table {
+                font-size: 8pt;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            header {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html#resume" class="back-link">← Back to Portfolio</a>
+    </header>
+
+    <div class="resume-container">
+        <div class="resume-header">
+            <h1>Joy Jiayue Ma</h1>
+            <div class="contact-info">Cambridge, MA</div>
+        </div>
+
+        <div class="section-title">EDUCATION</div>
+        <div class="education-entry">
+            <strong>Massachusetts Institute of Technology (MIT)</strong> <span style="float: right;">Cambridge, MA</span><br>
+            <em>M.Eng. in Computer Science</em> (in progress), Concentration: AI, GPA: 4.5/5.0 <span style="float: right;">2026</span><br>
+            <em>B.Sc. in Computer Science and Physics, Minor in Theater Arts</em>, GPA: 4.7/5.0 <span style="float: right;">2025</span>
+        </div>
+
+        <div class="section-title">THEATER</div>
+        <table>
+            <tr>
+                <td style="width: 32%;"><strong>Title</strong></td>
+                <td style="width: 16%;"><strong>Role</strong></td>
+                <td style="width: 25%;"><strong>Theater/Production</strong></td>
+                <td style="width: 23%;"><strong>Director</strong></td>
+            </tr>
+            <tr>
+                <td><em>A Dream Like a Dream</em></td>
+                <td>Old Koo, Jiang B</td>
+                <td>MIT Theater Arts</td>
+                <td>Jay Scheib</td>
+            </tr>
+            <tr>
+                <td><em>Not Sightly</em></td>
+                <td>Puppeteer 2</td>
+                <td>MIT Theater Arts</td>
+                <td>Joseph Lark-Riley</td>
+            </tr>
+            <tr>
+                <td><em>Dido's Ghost</em></td>
+                <td>Chorus</td>
+                <td>Emmanuel Music</td>
+                <td>Rebecca Miller Kratzer</td>
+            </tr>
+            <tr>
+                <td><em>La Vida es Sueño</em></td>
+                <td>Rosaura</td>
+                <td>MIT Theater Arts</td>
+                <td>Jorge Rubio</td>
+            </tr>
+            <tr>
+                <td><em>Stupid Fucking Bird</em></td>
+                <td>Trigorin</td>
+                <td>MIT Life On Stage Theater</td>
+                <td>Kat Chan</td>
+            </tr>
+            <tr>
+                <td><em>MIT Monologues</em></td>
+                <td>Writer, Performer</td>
+                <td>MIT Monologues</td>
+                <td>Katherine Hahn</td>
+            </tr>
+            <tr>
+                <td><em>Heathers</em></td>
+                <td>Ensemble</td>
+                <td>MIT Musical Theater Guild</td>
+                <td>Estin Van Alstine</td>
+            </tr>
+            <tr>
+                <td><em>Antigone</em> (variation)</td>
+                <td>Various</td>
+                <td>Bunker Hill CC</td>
+                <td>Jorge Rubio</td>
+            </tr>
+            <tr>
+                <td><em>Non-Player Character</em></td>
+                <td>Morwyn, Officer</td>
+                <td>MIT Theater Arts</td>
+                <td>Brandon Green</td>
+            </tr>
+            <tr>
+                <td><em>When I Was Your Man</em></td>
+                <td>Man</td>
+                <td>MIT Director's Craft</td>
+                <td>Tian Lin</td>
+            </tr>
+            <tr>
+                <td><em>Pippin</em></td>
+                <td>Ensemble</td>
+                <td>MIT Musical Theater Guild</td>
+                <td>Francisco Garcia</td>
+            </tr>
+            <tr>
+                <td><em>Rosencrantz & Guildenstern Are Dead</em></td>
+                <td>The Player</td>
+                <td>Fairview High Sch.</td>
+                <td>Karen Nieb</td>
+            </tr>
+            <tr>
+                <td><em>Bye Bye Birdie</em></td>
+                <td>Ensemble</td>
+                <td>Southern Hills Middle Sch.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><em>The Aristocrats</em></td>
+                <td>Edgar</td>
+                <td>Superior Elementary Sch.</td>
+                <td>Peggy Austin</td>
+            </tr>
+        </table>
+
+        <div class="section-title">FILM</div>
+        <table>
+            <tr>
+                <td style="width: 32%;"><strong>Title</strong></td>
+                <td style="width: 20%;"><strong>Role</strong></td>
+                <td style="width: 21%;"><strong>Festival, Client</strong></td>
+                <td style="width: 19%;"><strong>Director</strong></td>
+            </tr>
+            <tr>
+                <td><em>Fiona and Joy</em></td>
+                <td>Director, Joy</td>
+                <td>48H Film Project</td>
+                <td>Joy Ma</td>
+            </tr>
+            <tr>
+                <td><em>Every Log, Everywhere, All At Once</em></td>
+                <td>Camera, Audio</td>
+                <td>Student film</td>
+                <td>Reuben Fuchs</td>
+            </tr>
+            <tr>
+                <td><em>Returning August</em></td>
+                <td>Faye/Princess</td>
+                <td>Student film</td>
+                <td>Alice Le</td>
+            </tr>
+            <tr>
+                <td><em>Don't Call Me Friend, I Loved You</em></td>
+                <td>Jim Thorpe</td>
+                <td>Joy, Camera</td>
+                <td>Reuben Fuchs</td>
+            </tr>
+            <tr>
+                <td><em>MIT WLax Hype Video</em></td>
+                <td>Director, Editor</td>
+                <td>MIT Athletics</td>
+                <td>Joy Ma</td>
+            </tr>
+            <tr>
+                <td><em>Apricity</em></td>
+                <td>Director's Asst, Audio</td>
+                <td>Student film</td>
+                <td>Kat Chan</td>
+            </tr>
+            <tr>
+                <td><em>Log Log Land</em></td>
+                <td>Camera, Teacher</td>
+                <td>Student film</td>
+                <td>Reuben Fuchs</td>
+            </tr>
+            <tr>
+                <td><em>Kicking the Way to Equality</em></td>
+                <td>Narrator</td>
+                <td>National History Day</td>
+                <td>Joy Ma</td>
+            </tr>
+            <tr>
+                <td><em>The Nightingale</em> (parody)</td>
+                <td>Various</td>
+                <td>Southern Hills Mid. Sch.</td>
+                <td>Joy Ma, Lucy Collins</td>
+            </tr>
+        </table>
+
+        <div class="section-title">COURSEWORK</div>
+        <table>
+            <tr>
+                <td style="width: 40%;"><strong>Course name</strong></td>
+                <td style="width: 30%;"><strong>Instructor</strong></td>
+                <td style="width: 25%;"><strong>School/University</strong></td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong><u>Acting Studies</u></strong></td>
+            </tr>
+            <tr>
+                <td>Voice and Speech for the Actor</td>
+                <td>Olivia D'Ambrosio</td>
+                <td>MIT</td>
+            </tr>
+            <tr>
+                <td>Acting Intensive</td>
+                <td>Janet Sonenberg</td>
+                <td>MIT</td>
+            </tr>
+            <tr>
+                <td>Physical Improvisation: Scores & Structures</td>
+                <td>Dan Safer</td>
+                <td>MIT</td>
+            </tr>
+            <tr>
+                <td>Music Theater Workshop</td>
+                <td>Anna Kohler</td>
+                <td>MIT</td>
+            </tr>
+            <tr>
+                <td>Acting Techniques and Styles</td>
+                <td>Jorge Rubio</td>
+                <td>MIT</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong><u>Drama Studies</u></strong></td>
+            </tr>
+            <tr>
+                <td>Asian American Theater</td>
+                <td>Ju Yon Kim</td>
+                <td>Harvard University</td>
+            </tr>
+            <tr>
+                <td>Mixed Race Theater</td>
+                <td>Eunice Ferreira</td>
+                <td>MIT</td>
+            </tr>
+            <tr>
+                <td>Script Analysis</td>
+                <td>Jennifer Yoo</td>
+                <td>MIT</td>
+            </tr>
+            <tr>
+                <td>The Social Justice Documentary</td>
+                <td>Steven Ascher</td>
+                <td>MIT</td>
+            </tr>
+            <tr>
+                <td>IB Film</td>
+                <td>Lanny Boyer</td>
+                <td>Fairview High Sch.</td>
+            </tr>
+        </table>
+
+        <div class="section-title">PERFORMANCE GROUPS, PROJECTS & TRAINING</div>
+        <div class="performance-section">
+            <p><strong>Current performance groups:</strong> The Copley Cats (acapella), MIT Chamber Chorus, MIT Gamelan Ensemble</p>
+            <p><strong>Writing:</strong> Multi-self project (multi-media performance), A Screenplay Very Loosley Based on <em>Infinite Jest</em> (reading), 12.411 Documented (video series), "In the Silence" (monologue), "Kicking the Way to Equality" (documentary)</p>
+            <p><strong>Musical training:</strong> classical piano (12 years), voice lessons (briefly), all state choir</p>
+            <p><strong>Dance training:</strong> ballet (up to pointe), figure skating, MIT Cheerleading Team (1 season), POMs and hip hop (1 year), ballroom (3 months), traditional Chinese dance (2 years)</p>
+            <p><strong>Athletics:</strong> Eastern Collegiate Cyclocross Women's B 2nd place, National Collegiate Taekwondo Gold, Ntnls Powerlifting QT, biked across U.S., MIT D1 Crew, Fairview HS tennis captain and 4x varsity state qf, kickboxing, hockey</p>
+        </div>
+    </div>
+</body>
+</html>
