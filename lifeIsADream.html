@@ -52,7 +52,7 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
         }
 
@@ -63,6 +63,7 @@
             cursor: pointer;
             transition: transform 0.3s;
             max-height: 500px;
+            max-width: 100%;
         }
 
         .gallery-item:hover {
@@ -73,6 +74,7 @@
             width: 100%;
             height: auto;
             max-height: 500px;
+            max-width: 100%;
             object-fit: contain;
             transition: opacity 0.3s;
         }
@@ -190,7 +192,7 @@
         <div class="gallery-grid">
             <!-- Replace these placeholder images with your actual images -->
             <div class="gallery-item" onclick="openLightbox(0)">
-                <img src="liad_1.jpg" alt="La Vida es Sueño Image 1">
+                <img src="life is a dream w a emmel.jpg" alt="La Vida es Sueño Image 1">
             </div>
             <div class="gallery-item" onclick="openLightbox(1)">
                 <img src="liad_2.jpg" alt="La Vida es Sueño Image 2">
