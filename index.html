@@ -431,7 +431,7 @@
     </footer>
 
     <script>
-        // Feedback form handler
+        // Feedback form handler - redirects to Google Form with pre-filled data
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -441,24 +441,29 @@
                 feedback: document.getElementById('feedback').value
             };
             
-            const messageDiv = document.getElementById('formMessage');
+            // Replace these entry IDs with your actual Google Form field entry IDs
+            // To find them: Open your Google Form in edit mode, click on a field,
+            // and look at the URL or inspect the field's name attribute
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1IpdCajQCeCXuk-D8pLEvYEvthkjsz-TDT3tfKc6XcX8/viewform';
+            const nameEntry = 'entry.921713885';
+            const emailEntry = 'entry.637012909';
+            const feedbackEntry = 'entry.140688949';
             
-            // Create mailto link with form data
-            const subject = encodeURIComponent('Website Feedback from ' + (formData.name || 'Anonymous'));
-            const body = encodeURIComponent(
-                'Name: ' + (formData.name || 'Not provided') + '\n' +
-                'Email: ' + (formData.email || 'Not provided') + '\n\n' +
-                'Feedback:\n' + formData.feedback
-            );
+            // Build pre-filled URL
+            const params = new URLSearchParams();
+            if (formData.name) params.append(nameEntry, formData.name);
+            if (formData.email) params.append(emailEntry, formData.email);
+            params.append(feedbackEntry, formData.feedback);
             
-            // Open email client
-            window.location.href = `mailto:joy.j.ma1@gmail.com?subject=${subject}&body=${body}`;
+            // Open Google Form in new tab with pre-filled data
+            window.open(`${googleFormUrl}?${params.toString()}`, '_blank');
             
             // Show success message
+            const messageDiv = document.getElementById('formMessage');
             messageDiv.style.display = 'block';
             messageDiv.style.background = '#e8f5e9';
             messageDiv.style.color = '#2e7d32';
-            messageDiv.textContent = 'Opening your email client... Thank you for your feedback!';
+            messageDiv.textContent = 'Opening Google Form with your feedback... Thank you!';
             
             // Reset form
             setTimeout(() => {
