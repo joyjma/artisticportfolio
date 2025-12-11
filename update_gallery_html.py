@@ -58,12 +58,12 @@ def main():
     """Update all gallery HTML files."""
     gallery_files = [
         'index.html',
-        'lifeIsADream.html',
-        'headshots.html',
-        'adlad.html',
-        'stupidBird.html',
-        'multiself.html',
-        'not-sightly.html'
+        # 'lifeIsADream.html',
+        # 'headshots.html',
+        # 'adlad.html',
+        # 'stupidBird.html',
+        # 'multiself.html',
+        # 'not-sightly.html'
     ]
     
     print("🔧 Updating gallery HTML files to use thumbnails...")
