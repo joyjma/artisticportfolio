@@ -441,9 +441,9 @@
                 feedback: document.getElementById('feedback').value
             };
             
-            // Replace these entry IDs with your actual Google Form field entry IDs
-            // To find them: Open your Google Form in edit mode, click on a field,
-            // and look at the URL or inspect the field's name attribute
+            // Debug: log the form data
+            console.log('Form data:', formData);
+            
             const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSchpCGwHfDHQx-yOpJu9929tRbdUu0XyjvqF3iOPhNIAWHPwA/viewform';
             const nameEntry = 'entry.921713885';
             const emailEntry = 'entry.637012909';
@@ -454,7 +454,10 @@
             params.append('usp', 'pp_url');
             if (formData.name) params.append(nameEntry, formData.name);
             if (formData.email) params.append(emailEntry, formData.email);
-            if (formData.feedback) params.append(feedbackEntry, formData.feedback);
+            params.append(feedbackEntry, formData.feedback);
+            
+            // Debug: log the final URL
+            console.log('Google Form URL:', `${googleFormUrl}?${params.toString()}`);
             
             // Open Google Form in new tab with pre-filled data
             window.open(`${googleFormUrl}?${params.toString()}`, '_blank');
