@@ -122,11 +122,22 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s, filter 0.3s;
+            filter: grayscale(100%);
         }
 
         .project-card:hover .project-image img {
             opacity: 0.8;
+            filter: grayscale(0%);
+        }
+
+        /* When color mode is enabled */
+        body.color-mode .project-image img {
+            filter: grayscale(0%);
+        }
+
+        body.color-mode .project-card:hover .project-image img {
+            filter: grayscale(0%);
         }
 
         .project-image iframe {
@@ -348,6 +359,78 @@
             font-size: 0.9rem;
         }
 
+        /* Toggle switch styles */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            border: 2px solid #2c2c2c;
+            transition: .3s;
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: -1px;
+            top: -.5px;
+            background: conic-gradient(
+                from 0deg,
+                #ff0000 0deg 30deg,
+                #ff8000 30deg 60deg,
+                #ffff00 60deg 90deg,
+                #80ff00 90deg 120deg,
+                #00ff00 120deg 150deg,
+                #00ff80 150deg 180deg,
+                #00ffff 180deg 210deg,
+                #0080ff 210deg 240deg,
+                #0000ff 240deg 270deg,
+                #8000ff 270deg 300deg,
+                #ff00ff 300deg 330deg,
+                #ff0080 330deg 360deg
+            );
+            transition: .3s;
+            border-radius: 50%;
+            border: 1.5px solid #2c2c2c;
+        }
+
+        input:checked + .slider {
+            background: linear-gradient(
+                90deg,
+                red 0%,
+                orange 16.67%,
+                yellow 33.33%,
+                lime 50%,
+                cyan 66.67%,
+                blue 83.33%,
+                magenta 100%
+            );
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+            background: black;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding-left: 0;
@@ -364,7 +447,10 @@
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
+                flex-wrap: wrap;
             }
+
+
 
             h1 {
                 font-size: 1.5rem;
@@ -391,6 +477,11 @@
                 padding: 2rem;
             }
 
+            /* Hide toggle switch on mobile */
+            .switch {
+                display: none;
+            }
+
             /* Mobile: Show text based on scroll position instead of hover */
             .project-info h3,
             .project-info p {
@@ -412,6 +503,15 @@
             .project-card.in-view:hover .project-info p {
                 opacity: 1;
             }
+
+            /* Mobile: Images are grayscale, turn color when text appears */
+            .project-image img {
+                filter: grayscale(100%);
+            }
+
+            .project-card.in-view .project-image img {
+                filter: grayscale(0%);
+            }
         }
     </style>
 </head>
@@ -428,7 +528,16 @@
 
     <div class="container">
         <section id="projects" class="section">
-            <h2 class="section-title">Portfolio</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+                <h2 class="section-title" style="margin-bottom: 0.5rem;">Portfolio</h2>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <!-- <label for="colorToggle" style="font-size: 0.8rem; cursor: pointer; color: #666;">Color</label> -->
+                    <label class="switch">
+                        <input type="checkbox" id="colorToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
             <div class="projects-grid">
                 
                 <!-- Project 1 - Fiona and Joy -->
@@ -946,6 +1055,25 @@
                 }
             });
         }
+
+        // Color toggle functionality
+        const colorToggle = document.getElementById('colorToggle');
+        
+        // Load saved preference
+        if (localStorage.getItem('colorMode') === 'enabled') {
+            document.body.classList.add('color-mode');
+            colorToggle.checked = true;
+        }
+        
+        colorToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('color-mode');
+                localStorage.setItem('colorMode', 'enabled');
+            } else {
+                document.body.classList.remove('color-mode');
+                localStorage.setItem('colorMode', 'disabled');
+            }
+        });
 
         // Feedback form handler - redirects to Google Form with pre-filled data
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
