@@ -444,16 +444,17 @@
             // Replace these entry IDs with your actual Google Form field entry IDs
             // To find them: Open your Google Form in edit mode, click on a field,
             // and look at the URL or inspect the field's name attribute
-            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSchpCGwHfDHQx-yOpJu9929tRbdUu0XyjvqF3iOPhNIAWHPwA/viewform?usp=preview';
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSchpCGwHfDHQx-yOpJu9929tRbdUu0XyjvqF3iOPhNIAWHPwA/viewform';
             const nameEntry = 'entry.921713885';
             const emailEntry = 'entry.637012909';
             const feedbackEntry = 'entry.140688949';
             
             // Build pre-filled URL
             const params = new URLSearchParams();
+            params.append('usp', 'pp_url');
             if (formData.name) params.append(nameEntry, formData.name);
             if (formData.email) params.append(emailEntry, formData.email);
-            params.append(feedbackEntry, formData.feedback);
+            if (formData.feedback) params.append(feedbackEntry, formData.feedback);
             
             // Open Google Form in new tab with pre-filled data
             window.open(`${googleFormUrl}?${params.toString()}`, '_blank');
