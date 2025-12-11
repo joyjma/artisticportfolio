@@ -4,7 +4,7 @@
 }
 
 .project-image[data-credit]::after {
-    content: attr(data-credit);
+    content: "photo: " attr(data-credit);
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
