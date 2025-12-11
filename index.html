@@ -550,7 +550,7 @@
                         <p>Actor | Dir. Jay Scheib | MIT W97</p>
                     </div>
                 </a>
-                
+
                 <!-- Project 1 - Fiona and Joy -->
                 <a href="https://www.youtube.com/watch?v=KR97gSrQg94" target="_blank" class="project-card">
                     <div class="project-image">
@@ -1029,13 +1029,25 @@
                 threshold: 0
             };
 
+            let debounceTimers = new Map();
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                    } else {
-                        entry.target.classList.remove('in-view');
+                    const existingTimer = debounceTimers.get(entry.target);
+                    if (existingTimer) {
+                        clearTimeout(existingTimer);
                     }
+
+                    const timer = setTimeout(() => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                        } else {
+                            entry.target.classList.remove('in-view');
+                        }
+                        debounceTimers.delete(entry.target);
+                    }, 150);
+
+                    debounceTimers.set(entry.target, timer);
                 });
             }, observerOptions);
 
