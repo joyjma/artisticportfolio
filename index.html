@@ -82,6 +82,7 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+            padding-top: 12rem;
         }
 
         .projects-grid {
@@ -89,7 +90,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 0.5rem;
             margin-bottom: 4rem;
-            margin-top: 12rem;
+            margin-top: 1rem;
             max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
@@ -246,6 +247,100 @@
             color: #2c2c2c;
         }
 
+        /* Gallery styles for headshots */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .gallery-item[data-credit]::after {
+            content: "photo: " attr(data-credit);
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.3s 1s;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover[data-credit]::after {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .lightbox .prev, .lightbox .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem;
+            user-select: none;
+        }
+
+        .lightbox .prev {
+            left: 2rem;
+        }
+
+        .lightbox .next {
+            right: 2rem;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -302,15 +397,16 @@
     <header>
         <h1>JOY MA</h1>
         <nav>
-            <a href="index.html">Portfolio</a>
-            <a href="resume.html">Resume</a>
-            <a href="headshots.html">Headshots</a>
+            <a href="#projects">Portfolio</a>
+            <a href="#headshots">Headshots</a>
+            <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <div class="container">
         <section id="projects" class="section">
+            <h2 class="section-title">Portfolio</h2>
             <div class="projects-grid">
                 
                 <!-- Project 1 - Fiona and Joy -->
@@ -428,6 +524,266 @@
             </div>
         </section>
 
+        <!-- Headshots Section -->
+        <section id="headshots" class="section">
+            <h2 class="section-title">Headshots</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/Headshots/thumbnails/dogan 1.jpg" data-fullres="images/Headshots/dogan 1.png" alt="Headshot 1" onclick="openLightbox(0)" loading="lazy">
+                </div>
+                <div class="gallery-item" data-credit="Daina August">
+                    <img src="images/Headshots/thumbnails/headshot_grey_4x5.jpg" data-fullres="images/Headshots/headshot_grey_4x5.jpg" alt="Headshot 2" onclick="openLightbox(1)" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="section" style="max-width: 8.5in; margin: 4rem auto; padding: 0.6in; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div class="resume-header" style="text-align: center; margin-bottom: 1rem;">
+                <h1 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #2c2c2c;">Joy Jiayue Ma</h1>
+                <div style="font-size: 0.9rem; color: #444;">Cambridge, MA</div>
+            </div>
+
+            <div class="section-title" style="font-size: 1.1rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid #2c2c2c;">EDUCATION</div>
+            <div style="margin-bottom: 0.5rem;">
+                <strong>Massachusetts Institute of Technology (MIT)</strong> <span style="float: right;">Cambridge, MA</span><br>
+                <em>M.Eng. in Computer Science</em> (in progress), Concentration: AI, GPA: 4.5/5.0 <span style="float: right;">2026</span><br>
+                <em>B.Sc. in Computer Science and Physics, Minor in Theater Arts</em>, GPA: 4.7/5.0 <span style="float: right;">2025</span>
+            </div>
+
+            <div class="section-title" style="font-size: 1.1rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid #2c2c2c;">THEATER</div>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 9pt;">
+                <tr>
+                    <td style="width: 32%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Title</strong></td>
+                    <td style="width: 16%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Role</strong></td>
+                    <td style="width: 25%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Theater/Production</strong></td>
+                    <td style="width: 23%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Director</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>A Dream Like a Dream</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Old Koo, Jiang B</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Theater Arts</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Jay Scheib</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Not Sightly</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Puppeteer 2</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Theater Arts</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Joseph Lark-Riley</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Dido's Ghost</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Chorus</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Emmanuel Music</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Rebecca Miller Kratzer</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>La Vida es Sueño</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Rosaura</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Theater Arts</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Jorge Rubio</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Stupid Fucking Bird</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Trigorin</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Life On Stage Theater</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Kat Chan</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>MIT Monologues</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Writer, Performer</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Monologues</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Katherine Hahn</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Heathers</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Ensemble</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Musical Theater Guild</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Estin Van Alstine</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Antigone</em> (variation)</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Various</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Bunker Hill CC</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Jorge Rubio</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Non-Player Character</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Morwyn, Officer</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Theater Arts</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Brandon Green</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>When I Was Your Man</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Man</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Director's Craft</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Tian Lin</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Pippin</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Ensemble</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Musical Theater Guild</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Francisco Garcia</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Rosencrantz & Guildenstern Are Dead</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">The Player</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Fairview High Sch.</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Karen Nieb</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Bye Bye Birdie</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Ensemble</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Southern Hills Middle Sch.</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"></td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>The Aristocrats</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Edgar</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Superior Elementary Sch.</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Peggy Austin</td>
+                </tr>
+            </table>
+
+            <div class="section-title" style="font-size: 1.1rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid #2c2c2c;">FILM</div>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 9pt;">
+                <tr>
+                    <td style="width: 32%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Title</strong></td>
+                    <td style="width: 20%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Role</strong></td>
+                    <td style="width: 21%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Festival, Client</strong></td>
+                    <td style="width: 19%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Director</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Fiona and Joy</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Joy</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">48H Film Project</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Joy Ma</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Every Log, Everywhere, All At Once</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Camera, Audio</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Student film</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Reuben Fuchs</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Returning August</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Faye/Princess</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Student film</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Alice Le</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Don't Call Me Friend, I Loved You</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Jim Thorpe</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Joy, Camera</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Reuben Fuchs</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>MIT WLax Hype Video</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Director, Editor</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT Athletics</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Joy Ma</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Apricity</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Director's Asst, Audio</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Student film</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Kat Chan</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Log Log Land</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Camera, Teacher</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Student film</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Reuben Fuchs</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>Kicking the Way to Equality</em></td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Narrator</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">National History Day</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Joy Ma</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><em>The Nightingale</em> (parody)</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Various</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Southern Hills Mid. Sch.</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Joy Ma, Lucy Collins</td>
+                </tr>
+            </table>
+
+            <div class="section-title" style="font-size: 1.1rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid #2c2c2c;">COURSEWORK</div>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 9pt;">
+                <tr>
+                    <td style="width: 40%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Course name</strong></td>
+                    <td style="width: 30%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>Instructor</strong></td>
+                    <td style="width: 25%; padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top; font-weight: 700;"><strong>School/University</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><strong><u>Acting Studies</u></strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Voice and Speech for the Actor</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Olivia D'Ambrosio</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Acting Intensive</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Janet Sonenberg</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Physical Improvisation: Scores & Structures</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Dan Safer</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Music Theater Workshop</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Anna Kohler</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Acting Techniques and Styles</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Jorge Rubio</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;"><strong><u>Drama Studies</u></strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Asian American Theater</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Ju Yon Kim</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Harvard University</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Mixed Race Theater</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Eunice Ferreira</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Script Analysis</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Jennifer Yoo</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">The Social Justice Documentary</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Steven Ascher</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">MIT</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">IB Film</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Lanny Boyer</td>
+                    <td style="padding: 0.2rem 0.3rem 0.2rem 0; vertical-align: top;">Fairview High Sch.</td>
+                </tr>
+            </table>
+
+            <div class="section-title" style="font-size: 1.1rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid #2c2c2c;">PERFORMANCE GROUPS, PROJECTS & TRAINING</div>
+            <div style="font-size: 9pt;">
+                <p style="margin-bottom: 0.4rem;"><strong>Current performance groups:</strong> The Copley Cats (acapella), MIT Chamber Chorus, MIT Gamelan Ensemble</p>
+                <p style="margin-bottom: 0.4rem;"><strong>Writing:</strong> Multi-self project (multi-media performance), A Screenplay Very Loosley Based on <em>Infinite Jest</em> (reading), 12.411 Documented (video series), "In the Silence" (monologue), "Kicking the Way to Equality" (documentary)</p>
+                <p style="margin-bottom: 0.4rem;"><strong>Musical training:</strong> classical piano (12 years), voice lessons (briefly), all state choir</p>
+                <p style="margin-bottom: 0.4rem;"><strong>Dance training:</strong> ballet (up to pointe), figure skating, MIT Cheerleading Team (1 season), POMs and hip hop (1 year), ballroom (3 months), traditional Chinese dance (2 years)</p>
+                <p style="margin-bottom: 0.4rem;"><strong>Athletics:</strong> Eastern Collegiate Cyclocross Women's B 2nd place, National Collegiate Taekwondo Gold, Ntnls Powerlifting QT, biked across U.S., MIT D1 Crew, Fairview HS tennis captain and 4x varsity state qf, kickboxing, hockey</p>
+            </div>
+        </section>
+
     </div>
 
     <section id="feedback" style="max-width: 600px; margin: 4rem auto; padding: 2rem;">
@@ -473,6 +829,49 @@
     <footer>
         <p>&copy; 2025 Joy Ma. All rights reserved.</p>
     </footer>
+
+    <!-- Lightbox for headshots -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
+    </div>
+
+    <script>
+        // Lightbox functionality for headshots
+        const headshotImages = [
+            'images/Headshots/dogan 1.png',
+            'images/Headshots/headshot_grey_4x5.jpg'
+        ];
+
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-img').src = headshotImages[currentIndex];
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = headshotImages.length - 1;
+            if (currentIndex >= headshotImages.length) currentIndex = 0;
+            document.getElementById('lightbox-img').src = headshotImages[currentIndex];
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('lightbox').style.display === 'flex') {
+                if (event.key === 'ArrowLeft') changeImage(-1);
+                if (event.key === 'ArrowRight') changeImage(1);
+                if (event.key === 'Escape') closeLightbox();
+            }
+        });
+    </script>
 
     <script>
         // Feedback form handler - redirects to Google Form with pre-filled data
