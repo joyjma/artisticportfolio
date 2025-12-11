@@ -72,10 +72,10 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 0.5rem;
             margin-bottom: 4rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -83,10 +83,8 @@
         .project-card {
             cursor: pointer;
             transition: transform 0.3s;
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 0;
-            align-items: center;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -125,8 +123,7 @@
         }
 
         .project-info {
-            order: -1;
-            padding-right: 2rem;
+            padding: 0.5rem 0;
         }
 
         .project-info h3 {
