@@ -390,6 +390,28 @@
             .writing-sample {
                 padding: 2rem;
             }
+
+            /* Mobile: Show text based on scroll position instead of hover */
+            .project-info h3,
+            .project-info p {
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .project-card.in-view .project-info h3,
+            .project-card.in-view .project-info p {
+                opacity: 1;
+            }
+
+            .project-card:hover .project-info h3,
+            .project-card:hover .project-info p {
+                opacity: 0;
+            }
+
+            .project-card.in-view:hover .project-info h3,
+            .project-card.in-view:hover .project-info p {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -885,6 +907,44 @@
     </script>
 
     <script>
+        // Mobile scroll-based text visibility for gallery
+        if (window.innerWidth <= 768) {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-33.33% 0px -66.67% 0px', // Trigger when element crosses 1/3 from top
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    } else {
+                        entry.target.classList.remove('in-view');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Re-initialize on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelectorAll('.project-card').forEach(card => {
+                        observer.observe(card);
+                    });
+                } else {
+                    document.querySelectorAll('.project-card').forEach(card => {
+                        observer.unobserve(card);
+                        card.classList.remove('in-view');
+                    });
+                }
+            });
+        }
+
         // Feedback form handler - redirects to Google Form with pre-filled data
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
