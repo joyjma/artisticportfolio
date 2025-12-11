@@ -477,11 +477,6 @@
                 padding: 2rem;
             }
 
-            /* Hide toggle switch on mobile */
-            .switch {
-                display: none;
-            }
-
             /* Mobile: Show text based on scroll position instead of hover */
             .project-info h3,
             .project-info p {
@@ -511,6 +506,11 @@
 
             .project-card.in-view .project-image img {
                 filter: grayscale(0%);
+            }
+
+            /* Mobile: When color mode is enabled, all images stay in color */
+            body.color-mode .project-image img {
+                filter: grayscale(0%) !important;
             }
         }
     </style>
