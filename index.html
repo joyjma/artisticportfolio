@@ -363,7 +363,7 @@
         .switch {
             position: relative;
             display: inline-block;
-            width: 40px;
+            width: 35px;
             height: 20px;
         }
 
@@ -381,7 +381,7 @@
             right: 0;
             bottom: 0;
             background-color: white;
-            border: 2px solid #2c2c2c;
+            border: 2px solid #404040;
             transition: .3s;
             border-radius: 20px;
         }
@@ -395,40 +395,40 @@
             top: -.5px;
             background: conic-gradient(
                 from 0deg,
-                #ff0000 0deg 30deg,
-                #ff8000 30deg 60deg,
-                #ffff00 60deg 90deg,
-                #80ff00 90deg 120deg,
-                #00ff00 120deg 150deg,
-                #00ff80 150deg 180deg,
-                #00ffff 180deg 210deg,
-                #0080ff 210deg 240deg,
-                #0000ff 240deg 270deg,
-                #8000ff 270deg 300deg,
-                #ff00ff 300deg 330deg,
-                #ff0080 330deg 360deg
+                #ff6666 0deg 30deg,
+                #ffb366 30deg 60deg,
+                #ffff66 60deg 90deg,
+                #b3ff66 90deg 120deg,
+                #66ff66 120deg 150deg,
+                #66ffb3 150deg 180deg,
+                #66ffff 180deg 210deg,
+                #66b3ff 210deg 240deg,
+                #6666ff 240deg 270deg,
+                #b366ff 270deg 300deg,
+                #ff66ff 300deg 330deg,
+                #ff66b3 330deg 360deg
             );
             transition: .3s;
             border-radius: 50%;
-            border: 1.5px solid #2c2c2c;
+            border: 1.5px solid #404040;
         }
 
         input:checked + .slider {
             background: linear-gradient(
                 90deg,
-                red 0%,
-                orange 16.67%,
-                yellow 33.33%,
-                lime 50%,
-                cyan 66.67%,
-                blue 83.33%,
-                magenta 100%
+                #ff6666 0%,
+                #ffb366 16.67%,
+                #ffff66 33.33%,
+                #66ff66 50%,
+                #66ffff 66.67%,
+                #6666ff 83.33%,
+                #ff66ff 100%
             );
         }
 
         input:checked + .slider:before {
-            transform: translateX(20px);
-            background: black;
+            transform: translateX(15px);
+            background: #404040;
         }
 
         @media (max-width: 768px) {
