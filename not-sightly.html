@@ -16,19 +16,39 @@
 
     <div class="gallery-grid">
         <div class="gallery-item" data-credit="Fang Liu">
-            <img src="images/Not Sightly/IMG_0227.jpg" alt="Not Sightly 1" onclick="openLightbox(0)">
+            <img src="images/Not Sightly/thumbnails/IMG_0227.jpg" 
+                 data-fullres="images/Not Sightly/IMG_0227.jpg"
+                 alt="Not Sightly 1" 
+                 onclick="openLightbox(0)"
+                 loading="lazy">
         </div>
         <div class="gallery-item" data-credit="Fang Liu">
-            <img src="images/Not Sightly/IMG_0229.JPG" alt="Not Sightly 2" onclick="openLightbox(1)">
+            <img src="images/Not Sightly/thumbnails/IMG_0229.JPG" 
+                 data-fullres="images/Not Sightly/IMG_0229.JPG"
+                 alt="Not Sightly 2" 
+                 onclick="openLightbox(1)"
+                 loading="lazy">
         </div>
         <div class="gallery-item" data-credit="Fang Liu">
-            <img src="images/Not Sightly/IMG_0274.JPG" alt="Not Sightly 3" onclick="openLightbox(2)">
+            <img src="images/Not Sightly/thumbnails/IMG_0274.JPG" 
+                 data-fullres="images/Not Sightly/IMG_0274.JPG"
+                 alt="Not Sightly 3" 
+                 onclick="openLightbox(2)"
+                 loading="lazy">
         </div>
         <div class="gallery-item" data-credit="Fang Liu">
-            <img src="images/Not Sightly/IMG_0276.JPG" alt="Not Sightly 4" onclick="openLightbox(3)">
+            <img src="images/Not Sightly/thumbnails/IMG_0276.JPG" 
+                 data-fullres="images/Not Sightly/IMG_0276.JPG"
+                 alt="Not Sightly 4" 
+                 onclick="openLightbox(3)"
+                 loading="lazy">
         </div>
         <div class="gallery-item" data-credit="Fang Liu">
-            <img src="images/Not Sightly/IMG_0280.JPG" alt="Not Sightly 5" onclick="openLightbox(4)">
+            <img src="images/Not Sightly/thumbnails/IMG_0280.JPG" 
+                 data-fullres="images/Not Sightly/IMG_0280.JPG"
+                 alt="Not Sightly 5" 
+                 onclick="openLightbox(4)"
+                 loading="lazy">
         </div>
     </div>
 
@@ -40,6 +60,7 @@
     </div>
 
     <script>
+        // Store full resolution image paths
         const images = [
             'images/Not Sightly/IMG_0227.jpg',
             'images/Not Sightly/IMG_0229.JPG',
@@ -53,9 +74,13 @@
         function openLightbox(index) {
             currentIndex = index;
             const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
             lightbox.classList.add('active');
             lightbox.style.display = 'flex';
-            document.getElementById('lightbox-img').src = images[currentIndex];
+            
+            // Load high-res image in lightbox
+            lightboxImg.src = images[currentIndex];
         }
 
         function closeLightbox() {
