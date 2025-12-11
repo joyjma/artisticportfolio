@@ -13,7 +13,7 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s 1s;
 }
 
 .project-card:hover .project-image[data-credit]::after {

@@ -66,19 +66,16 @@ h1 {
 }
 
 .gallery-item[data-credit]::after {
-    content: attr(data-credit);
+    content: "photo: " attr(data-credit);
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.8);
+    top: 0.5rem;
+    right: 0.5rem;
     color: white;
-    padding: 0.75rem;
-    font-size: 0.85rem;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
+    font-size: 0.75rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s 1s;
 }
 
 .gallery-item[data-credit]:hover::after {
