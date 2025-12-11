@@ -402,8 +402,8 @@
             </div>
             
             <div>
-                <label for="feedback" style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-size: 0.9rem;">Your Feedback *</label>
-                <textarea id="feedback" name="feedback" required rows="6" style="width: 100%; padding: 0.75rem; border: 1px solid #e5e5e5; border-radius: 4px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
+                <label for="feedbackText" style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-size: 0.9rem;">Your Feedback *</label>
+                <textarea id="feedbackText" name="feedback" required rows="6" style="width: 100%; padding: 0.75rem; border: 1px solid #e5e5e5; border-radius: 4px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
             </div>
             
             <button type="submit" style="padding: 1rem 2rem; background: #2c2c2c; color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: background 0.3s; align-self: flex-start;">Send Feedback</button>
@@ -438,7 +438,7 @@
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
-                feedback: document.getElementById('feedback').value
+                feedback: document.getElementById('feedbackText').value
             };
             
             // Debug: log the form data
