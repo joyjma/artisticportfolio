@@ -153,8 +153,8 @@
             opacity: 1;
         }
 
-        /* "Click for more" overlay for non-video image cards */
-        .project-card:not([data-video]) .project-image::before {
+        /* "Click for more" overlay for non-video image cards (but not writing projects) */
+        .project-card:not([data-video]):not(.writing-project) .project-image::before {
             content: 'explore...';
             position: absolute;
             top: 50%;
@@ -172,7 +172,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        .project-card:not([data-video]):hover .project-image::before {
+        .project-card:not([data-video]):not(.writing-project):hover .project-image::before {
             opacity: 1;
         }
 
@@ -590,8 +590,8 @@
                 opacity: 1;
             }
 
-            /* Mobile: Show "Click for more" when non-video card is in view */
-            .project-card:not([data-video]).in-view .project-image::before {
+            /* Mobile: Show "Click for more" when non-video card is in view (but not writing projects) */
+            .project-card:not([data-video]):not(.writing-project).in-view .project-image::before {
                 opacity: 1;
             }
         }
@@ -709,7 +709,7 @@
                 </a>
 
                 <!-- Writing - In the Silence -->
-                <a href="in-the-silence.html" class="project-card">
+                <a href="in-the-silence.html" class="project-card writing-project">
                     <div class="project-image" style="background: #fafafa;">
                         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; padding: 2rem; background: #fafafa; display: flex; flex-direction: column; justify-content: center;">
                             <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">In the Silence</h3>
@@ -723,7 +723,7 @@
                 </a>
 
                 <!-- Multiself Performance -->
-                <a href="multiself.html" class="project-card">
+                <a href="multiself.html" class="project-card writing-project">
                     <div class="project-image" style="background: #fafafa;">
                         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; padding: 2rem; background: #fafafa; display: flex; flex-direction: column; justify-content: center;">
                             <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Multiself Performance</h3>
@@ -737,7 +737,7 @@
                 </a>
 
                 <!-- Infinite Jest Screenplay -->
-                <a href="infinite-jest-screenplay.html" class="project-card">
+                <a href="infinite-jest-screenplay.html" class="project-card writing-project">
                     <div class="project-image" style="background: #fafafa;">
                         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; padding: 2rem; background: #fafafa; display: flex; flex-direction: column; justify-content: center;">
                             <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">A Screenplay Loosely Based on Infinite Jest</h3>
