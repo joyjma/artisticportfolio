@@ -557,6 +557,12 @@
             body.color-mode .project-image img {
                 filter: grayscale(0%) !important;
             }
+
+            /* Mobile: Show play button when video card is in view */
+            .project-card[data-video].in-view .project-image::before,
+            .project-card[data-video].in-view .project-image::after {
+                opacity: 1;
+            }
         }
     </style>
 </head>
