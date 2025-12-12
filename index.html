@@ -103,8 +103,52 @@
             flex-direction: column;
         }
 
+        a.project-card {
+            cursor: pointer;
+        }
+
         .project-card:hover {
             transform: translateY(-5px);
+        }
+
+        /* Play button overlay for videos */
+        .project-card[data-video] .project-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateX(3px);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 20px 0 20px 35px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .project-card[data-video] .project-image::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .project-card[data-video]:hover .project-image::before,
+        .project-card[data-video]:hover .project-image::after {
+            opacity: 1;
         }
 
         .project-image {
@@ -161,6 +205,7 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
             opacity: 0;
             transition: opacity 0.3s;
+            text-decoration: underline;
         }
 
         .project-card:hover .project-info h3 {
@@ -566,7 +611,7 @@
                 
 
                 <!-- Project - Antigone -->
-                <a href="https://photos.app.goo.gl/D99v2V3zsWiWPbLW8" target="_blank" class="project-card">
+                <a href="https://photos.app.goo.gl/D99v2V3zsWiWPbLW8" target="_blank" class="project-card" data-video="true">
                     <div class="project-image">
                         <img src="images/videos/thumbnails/antigone all dead.jpg" alt="Antigone" loading="lazy">
                     </div>
@@ -577,7 +622,7 @@
                 </a>
 
                 <!-- Project 2 - Returning August -->
-                <a href="https://vimeo.com/1030186474" target="_blank" class="project-card">
+                <a href="https://vimeo.com/1030186474" target="_blank" class="project-card" data-video="true">
                     <div class="project-image">
                         <img src="images/videos/thumbnails/returning_august_thumnail.jpg" data-fullres="images/videos/returning_august_thumnail.png" alt="Returning August" loading="lazy">
                     </div>
@@ -593,7 +638,7 @@
                
 
                 <!-- Project 1 - Fiona and Joy -->
-                <a href="https://www.youtube.com/watch?v=KR97gSrQg94" target="_blank" class="project-card">
+                <a href="https://www.youtube.com/watch?v=KR97gSrQg94" target="_blank" class="project-card" data-video="true">
                     <div class="project-image">
                         <img src="https://img.youtube.com/vi/KR97gSrQg94/maxresdefault.jpg" alt="fiona and joy">
                     </div>
