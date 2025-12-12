@@ -127,6 +127,7 @@
             transition: opacity 0.3s;
             z-index: 2;
             pointer-events: none;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
         }
 
         .project-card[data-video] .project-image::after {
@@ -144,6 +145,7 @@
             transition: opacity 0.3s;
             z-index: 1;
             pointer-events: none;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
         }
 
         .project-card[data-video]:hover .project-image::before,
@@ -167,6 +169,7 @@
             z-index: 2;
             pointer-events: none;
             text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .project-card:not([data-video]):hover .project-image::before {
