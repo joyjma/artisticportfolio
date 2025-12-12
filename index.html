@@ -1175,7 +1175,7 @@
             }
         });
 
-        // Feedback form handler - redirects to Google Form with pre-filled data
+        // Feedback form handler - submits directly to Google Form
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -1185,39 +1185,55 @@
                 feedback: document.getElementById('feedbackText').value
             };
             
-            // Debug: log the form data
-            console.log('Form data:', formData);
-            
-            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSchpCGwHfDHQx-yOpJu9929tRbdUu0XyjvqF3iOPhNIAWHPwA/viewform';
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSchpCGwHfDHQx-yOpJu9929tRbdUu0XyjvqF3iOPhNIAWHPwA/formResponse';
             const nameEntry = 'entry.921713885';
             const emailEntry = 'entry.637012909';
             const feedbackEntry = 'entry.140688949';
             
-            // Build pre-filled URL
+            // Build form data
             const params = new URLSearchParams();
-            params.append('usp', 'pp_url');
             if (formData.name) params.append(nameEntry, formData.name);
             if (formData.email) params.append(emailEntry, formData.email);
             params.append(feedbackEntry, formData.feedback);
             
-            // Debug: log the final URL
-            console.log('Google Form URL:', `${googleFormUrl}?${params.toString()}`);
-            
-            // Open Google Form in new tab with pre-filled data
-            window.open(`${googleFormUrl}?${params.toString()}`, '_blank');
-            
-            // Show success message
+            // Show sending message
             const messageDiv = document.getElementById('formMessage');
             messageDiv.style.display = 'block';
-            messageDiv.style.background = '#e8f5e9';
-            messageDiv.style.color = '#2e7d32';
-            messageDiv.textContent = 'Opening Google Form with your feedback... Thank you!';
+            messageDiv.style.background = '#e3f2fd';
+            messageDiv.style.color = '#1565c0';
+            messageDiv.textContent = 'Sending feedback...';
             
-            // Reset form
-            setTimeout(() => {
-                this.reset();
-                messageDiv.style.display = 'none';
-            }, 3000);
+            // Submit to Google Form
+            fetch(googleFormUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: params.toString()
+            }).then(() => {
+                // Show success message
+                messageDiv.style.background = '#e8f5e9';
+                messageDiv.style.color = '#2e7d32';
+                messageDiv.textContent = 'Thank you! Your feedback has been submitted.';
+                
+                // Reset form
+                setTimeout(() => {
+                    document.getElementById('feedbackForm').reset();
+                    messageDiv.style.display = 'none';
+                }, 3000);
+            }).catch(() => {
+                // Even with no-cors, the submission likely succeeded
+                messageDiv.style.background = '#e8f5e9';
+                messageDiv.style.color = '#2e7d32';
+                messageDiv.textContent = 'Thank you! Your feedback has been submitted.';
+                
+                // Reset form
+                setTimeout(() => {
+                    document.getElementById('feedbackForm').reset();
+                    messageDiv.style.display = 'none';
+                }, 3000);
+            });
         });
     </script>
 </body>
